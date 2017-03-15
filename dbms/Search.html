@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Update</title>
+</head>
+<body style="background:GREEN">
+<h1>Search Case Information</h1>
+<form action="SearchC.php" method="post">
+<input placeholder="Case id" name="case_id"/>
+<input type="submit" value="Submit"/>
+</form>
+<h1>Search cases By case Type</h1>
+<form action="Search_By_case.php" method="post">
+<select name="case_type">
+<option value="civil">Civil</option>
+<option value="crime">Crime</option>
+</select>
+<input type="submit" value="Submit"/>
+</form>
+<h1>Defence and Client</h1>
+<form action="Defence_Client.php" method="post">
+<input placeholder="Client id" name="client_id"/>
+<input type="submit" value="Submit"/>
+</form>
+<h1>Defence Client and Prosecutor</h1>
+<form action="Who.php" method="post">
+<input placeholder="case id" name="case_id"/>
+<input type="submit" value="Submit"/>
+</form>
+<h1>Search By Attorney special</h1>
+<form action="AttorneySearch.php" method="post">
+<select name="attorney_special">
+<option value="civil">Civil</option>
+<option value="crime">Crime</option>
+</select>
+<input type="submit" value="Submit"/>
+</form>
+<h1>Judge Details</h1>
+<form action="JudgeS.php" method="post">
+<input placeholder="Judge Id" name="Judge_id"/>
+<input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

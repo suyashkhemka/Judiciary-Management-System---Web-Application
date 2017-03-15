@@ -1,0 +1,74 @@
+1)List the number of buses which has source as Bangalore
+  
+   select source,count(*) from buses where source='bangalore' group by source;
+2) Find the average fare from bangalore to mumbai
+  
+   select source,destination,AVG(fare) from buses where (source='bangalore' and destination='mumbai') group by source,destination; 
+
+3)List the number of trains having the station code GPR
+
+   select id,count(*) from train where stcode='GPR' group by stcode
+
+4)List the number of trains that goes from pondicherry
+   
+   select source,count(*) from train where source='pondicherry' group by source
+
+5)Find the average of all Ac Type buses
+
+  select type,AVG(fare) from buses where type='AC' group by type;
+
+complex queries
+
+6)select all buses where it goes from bangalore to mumbai in Ac bus or mumbai to pondicherry in NON-AC Bus.
+
+  select * from buses b  where busNo IN (select busNo from buses a where((b.source = 'bangalore' and b.destination='mumbai' and b.type='AC') or (a.source = 'mumbai' and a.destination='pondicherry' and a.type='NON-AC')));
+
+7)select all buses where number of seats required from bangalore to mumbai is atleast 8 seats or mumbai to bangalore atleast 10 seats
+
+   
+select * from buses b where busNo in (select busNo from buses a where((b.seats>=8 and b.destination='mumbai' and b.source='bangalore') or (a.seats>=10 and a.destination='bangalore' and a.source='mumbai')));
+
+8)select all buses from goa to bangalore with fare less than 700 or bangalore to hyderbad with Ac type buses
+
+   select * from buses b where busNo in (select busNo from buses a where ((b.fare<700 and b.destination='bangalore' and b.source='Goa') or (a.type='AC' and a.destination='Hyderabad' and a.source='bangalore')));
+
+9)select all station names and find the distance between the two stations.
+
+   select a.name,b.name,distance from track,station a,station b where (a.stcode=stcode1 and b.stcode=stcode2);
+
+10)update the ticket number  from bangalore to mumbai with NON-AC type bus
+  
+   UPDATE ticketdetails SET ticketno=2000 where busNo IN (select busNo from buses where (source='bangalore' and destination='mumbai' and type='NON-AC'));
+
+
+
+
+
+
+
+
+11)SELECT * FROM buses where source='$srcvalue' AND destination='$destvalue' AND DOJ='$date';
+
+12)SELECT * FROM buses where busNo='$busSelected;
+
+13)SELECT * FROM ticketdetails where ticketno='$tktno;
+
+14)DELETE FROM `bus`.`ticketdetails` WHERE `ticketdetails`.`ticketno` = '$tktno';
+
+15)SELECT * FROM admin where user='$userval' AND password='$passwordval;
+
+16)SELECT MAX(ticketno) AS ticketno FROM ticketdetails;
+
+17)SELECT * FROM ticketdetails where ticketno='$ticketno;
+
+18)SELECT * FROM ticketdetails,buses where ticketno='$tktno' AND ticketdetails.busNo=buses.busNo;
+
+19)SELECT * FROM admin where user='$userval' AND password='$passwordval;
+
+20)INSERT INTO `buses`(`busNo`, `source`, `destination`, `DOJ`,`seats`, `type`, `fare`) VALUES ('$busnoval','$sourceval','$destval','$dateval','$seatsval','$typeval','$fareval');
+
+21)SELECT * FROM ticketdetails,train where ticketno='$tktno' AND ticketdetails.id=train.id;
+
+22)SELECT * FROM train where source='$srcvalue' AND destination='$destvalue';
+
+23)SELECT * FROM train where id='$trainSelected';   

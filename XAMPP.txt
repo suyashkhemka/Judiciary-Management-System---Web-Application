@@ -1,0 +1,3 @@
+Xampp/my sql/data copy case_management
+copy dbms file in htdocs
+copy index.php to htdocs and delete existing file
